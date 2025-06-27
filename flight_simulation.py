@@ -1,4 +1,4 @@
-from model import equations_of_motion, SSTVCModel
+from basic_lqr.lqr_model import equations_of_motion, SSTVCModel
 from time import perf_counter
 import numpy as np
 from model_constants import *
@@ -19,6 +19,7 @@ def ode(tspan, x0, xr):
     x = x0
     dt = tspan[1]-tspan[0]
     start_time = perf_counter()
+    print(-md.K)
     for i in range(len(tspan)):
         dx = equations_of_motion(x,u)
         x = x + dx*dt
@@ -119,8 +120,8 @@ def compare_solution_methods(method1, method2, time_series, x0, xr,):
 
 def run_comparison():
     tspan = np.arange(0,20,0.1)
-    x0 = np.array([0,0,0,0,0,0,0,0,0,0,0.2,0]) # Initial condition
-    xr = np.array([0,1,0,0,0,0,0,0,0,0,0,0])      # Reference position 
+    x0 = np.array([0,0,0,0,0,0,0,0,0,0,0,0]) # Initial condition
+    xr = np.array([0,2,0,0,0,0,0,1,1,0,0,0])      # Reference position 
 
     method1 = Method(ode)
     method2 = Method(lss)
