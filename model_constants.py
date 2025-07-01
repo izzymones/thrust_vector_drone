@@ -4,7 +4,7 @@ gx = 0
 gy = 0
 gz = -9.81
 m = 1
-l = 1           # moment arm length
+l = 2           # moment arm length
 
 Ixx = 1
 Iyy = 1
@@ -19,7 +19,7 @@ g = np.array([
 moment_arm = np.array([
     0,
     0,
-    -l
+    -l/2
 ])
 
 I = np.array([
