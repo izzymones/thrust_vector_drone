@@ -2,7 +2,6 @@
 import casadi as ca
 from casadi import sin, cos
 import model_constants as mc
-import numpy as np
 
 p = ca.MX.sym('p', 3)
 v = ca.MX.sym('v', 3)
